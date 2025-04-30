@@ -56,6 +56,8 @@ npm
  - uses V8 engine.
  - syntax examples:
   - npm -v < package-name >
+ - @DevDependecies
+  - npm i -D nodemon
 </pre>
 
 <pre>

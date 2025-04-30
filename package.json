@@ -1,10 +1,17 @@
 {
+  "name": "rreglo-nodejs-api",
+  "version": "1.0.0",
+  "description": "Node.js API",
+  "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "node app"
+    "dev": "nodemon --env-file=.env index"
   },
+  "author": "Richmond Reglo",
+  "license": "MIT",
   "dependencies": {
     "@types/node": "^22.15.3",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
   }
 }
