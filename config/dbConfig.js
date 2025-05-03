@@ -11,7 +11,7 @@ export default {
         dialect: config.dialect,
         pool: config.pool
     },
-    dev: {
+    development: {
         username: config.username,
         password: config.password,
         database: config.database,
@@ -20,7 +20,7 @@ export default {
         dialect: config.dialect,
         pool: config.pool
     },
-    prod: {
+    production: {
         username: config.username,
         password: config.password,
         database: config.database,

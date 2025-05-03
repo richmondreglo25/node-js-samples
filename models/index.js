@@ -43,5 +43,3 @@ db.sequelize.sync({
 });
 
 export default db;
-
-

@@ -17,8 +17,8 @@ export default (sequelize, DataTypes) => {
             type: DataTypes.TEXT,
             allowNull: false
         },
-        // createdAt: DataTypes.TIMESTAMP
-        // updatedAt: DataTypes.TIMESTAMP
+        // createdAt: DataTypes.DATETIME
+        // updatedAt: DataTypes.DATETIME
     });
 
     return User;

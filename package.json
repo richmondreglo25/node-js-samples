@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon --env-file=.env index"
+    "dev": "nodemon --env-file=.env index",
+    "reinit:sql": "npx sequelize db:create && npx sequelize-cli db:migrate:undo && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:undo:all && npx sequelize-cli db:seed:all"
   },
   "author": "Richmond Reglo",
   "license": "MIT",
@@ -15,5 +16,9 @@
     "mysql2": "^3.14.1",
     "nodemon": "^3.1.10",
     "sequelize": "^6.37.7"
+  },
+  "devDependencies": {
+    "babel-register": "^6.26.0",
+    "sequelize-cli": "^6.6.2"
   }
 }
