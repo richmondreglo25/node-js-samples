@@ -24,7 +24,7 @@ app.use('/api/users', userRouter);
 
 app.listen(PORT, (req, res) => {
     console.log(`DB config: ${env}`);
-    
+
     let _dbConfig = dbConfig[env];
     _dbConfig.password = "****";
     console.log(_dbConfig);
