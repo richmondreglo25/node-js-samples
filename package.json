@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon --env-file=.env index",
+    "dev": "nodemon --env-file=.env src/index",
     "reinit:sql": "npx sequelize db:create && npx sequelize-cli db:migrate:undo && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:undo:all && npx sequelize-cli db:seed:all"
   },
   "author": "Richmond Reglo",

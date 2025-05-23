@@ -1,6 +1,5 @@
 import db from '../models/index.js';
 
-// Create User model.
 const User = db.users;
 
 export default {
@@ -47,8 +46,6 @@ export default {
             }
         });
 
-        // HTTP 200 (Unsure), HTTP 204 (Record updated).
-        // HTTP 204, returns nothing.
         res.status(user ? 204 : 404);
         res.end();
     },
@@ -63,8 +60,6 @@ export default {
             }
         });
 
-        // HTTP 200 (Unsure), HTTP 204 (Record deleted).
-        // HTTP 204, returns nothing.
         res.status(user ? 204 : 404);
         res.end();
     }
