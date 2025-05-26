@@ -2,41 +2,51 @@
 
 /** @type {import('sequelize-cli').Migration} */
 export default {
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('users', [{
       status: true,
-      firstName: 'Richmond',
-      lastName: 'Reglo',
+      firstname: 'Richmond',
+      lastname: 'Reglo',
+      nickname: 'rich',
+      email: 'richmond@example.com',
       createdAt: new Date(),
       updatedAt: new Date()
-    },{
+    }, {
       status: true,
-      firstName: 'Ericka',
-      lastName: 'Reglo',
+      firstname: 'Ericka',
+      lastname: 'Reglo',
+      nickname: 'erick',
+      email: 'ericka@example.com',
       createdAt: new Date(),
       updatedAt: new Date()
-    },{
+    }, {
       status: true,
-      firstName: 'Carmelina',
-      lastName: 'Reglo',
+      firstname: 'Carmelina',
+      lastname: 'Reglo',
+      nickname: 'carm',
+      email: 'carmelina@example.com',
       createdAt: new Date(),
       updatedAt: new Date()
-    },{
+    }, {
       status: true,
-      firstName: 'John Victor',
-      lastName: 'Reglo',
+      firstname: 'John Victor',
+      lastname: 'Reglo',
+      nickname: 'john',
+      email: 'johnvictor@example.com',
       createdAt: new Date(),
       updatedAt: new Date()
-    },{
+    }, {
       status: true,
-      firstName: 'Gabriel Rose',
-      lastName: 'Reglo',
+      firstname: 'Gabriel Rose',
+      lastname: 'Reglo',
+      nickname: 'gabe',
+      email: 'gabrielrose@example.com',
       createdAt: new Date(),
       updatedAt: new Date()
     }], {});
   },
 
-  async down (queryInterface, Sequelize) {
+  async down(queryInterface, Sequelize) {
     await queryInterface.bulkDelete('users', null, {});
   }
 };

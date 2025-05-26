@@ -16,12 +16,22 @@ const router: Router = Router();
  *     lastName:
  *      type: string
  *      description: Last name
+ *     nickname:
+ *      type: string
+ *      description: Nickname
+ *     email:
+ *      type: string
+ *      description: Email address
  *    required:
  *     - firstName
  *     - lastName
+ *     - nickname
+ *     - email
  *    example:
  *     firstname: Richmond
  *     lastname: Reglo
+ *     nickname: rich
+ *     email: richmond@example.com
  */
 
 /**
