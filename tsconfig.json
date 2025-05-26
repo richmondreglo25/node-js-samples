@@ -4,6 +4,10 @@
     "module": "commonjs",
     "outDir": "dist",
     "rootDir": "src",
+    "baseUrl": "src",
+    "paths": {
+      "@app/*": ["app/*"]
+    },
     "strict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
