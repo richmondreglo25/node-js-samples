@@ -7,6 +7,8 @@ interface UserType {
     id?: number;
     firstname: string;
     lastname: string;
+    nickname: string;
+    email: string;
     status?: boolean;
 }
 
@@ -36,7 +38,9 @@ export default {
         const data: UserType = {
             status: true,
             firstname: req.body.firstname,
-            lastname: req.body.lastname
+            lastname: req.body.lastname,
+            nickname: req.body.nickname,
+            email: req.body.email
         };
 
         const user = await User.create(data);
@@ -45,7 +49,9 @@ export default {
     updateUser: async (req: Request, res: Response) => {
         const data: Partial<UserType> = {
             firstname: req.body.firstname,
-            lastname: req.body.lastname
+            lastname: req.body.lastname,
+            nickname: req.body.nickname,
+            email: req.body.email
         };
 
         const user = await User.update(data, {

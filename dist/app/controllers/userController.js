@@ -28,7 +28,9 @@ exports.default = {
         const data = {
             status: true,
             firstname: req.body.firstname,
-            lastname: req.body.lastname
+            lastname: req.body.lastname,
+            nickname: req.body.nickname,
+            email: req.body.email
         };
         const user = await User.create(data);
         res.status(201).send(user);
@@ -36,7 +38,9 @@ exports.default = {
     updateUser: async (req, res) => {
         const data = {
             firstname: req.body.firstname,
-            lastname: req.body.lastname
+            lastname: req.body.lastname,
+            nickname: req.body.nickname,
+            email: req.body.email
         };
         const user = await User.update(data, {
             where: {
