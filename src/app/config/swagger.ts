@@ -15,5 +15,5 @@ export default {
             url: `http://localhost:8081`,
         }]
     },
-    apis: ["./src/app/routers/*.js"]
+    apis: ["./src/app/routers/*.ts"]
 }
