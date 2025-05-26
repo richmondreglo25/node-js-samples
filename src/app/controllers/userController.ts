@@ -1,5 +1,5 @@
-import db from '../models';
 import { Request, Response } from 'express';
+import { userRepository } from '../repositories/userRepository';
 
 // Define UserType interface if not imported from elsewhere
 interface UserType {
@@ -10,28 +10,18 @@ interface UserType {
     email: string;
 }
 
-const User = db.users;
-
 export default {
     getUsers: async (req: Request, res: Response) => {
         const fetchDeleted = req.query.fetchDeleted;
-        let _where: any = {};
-
+        let where: any = {};
         if (!(fetchDeleted === 'true')) {
-            _where.where = {};
-            _where.where.status = true;
+            where.status = true;
         }
-
-        const users = await User.findAll(_where);
+        const users = await userRepository.findAll({ where });
         res.status(200).send(users);
     },
     getUser: async (req: Request, res: Response) => {
-        const user = await User.findOne({
-            where: {
-                id: req.params.id
-            }
-        });
-
+        const user = await userRepository.findById(Number(req.params.id));
         res.status(user ? 200 : 404).send(user);
     },
     addUser: async (req: Request, res: Response) => {
@@ -42,8 +32,7 @@ export default {
             nickname: req.body.nickname,
             email: req.body.email
         };
-
-        const user = await User.create(data);
+        const user = await userRepository.create(data);
         res.status(201).send(user);
     },
     updateUser: async (req: Request, res: Response) => {
@@ -53,28 +42,13 @@ export default {
             nickname: req.body.nickname,
             email: req.body.email
         };
-
-        const user = await User.update(data, {
-            where: {
-                id: req.params.id
-            }
-        });
-
-        res.status(user ? 204 : 404);
+        const affected = await userRepository.update(Number(req.params.id), data);
+        res.status(affected ? 204 : 404);
         res.end();
     },
     deleteUser: async (req: Request, res: Response) => {
-        const data = {
-            status: false
-        };
-
-        const user = await User.update(data, {
-            where: {
-                id: req.params.id
-            }
-        });
-
-        res.status(user ? 204 : 404);
+        const affected = await userRepository.update(Number(req.params.id), { status: false });
+        res.status(affected ? 204 : 404);
         res.end();
     }
 };
