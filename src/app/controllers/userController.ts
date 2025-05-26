@@ -1,16 +1,16 @@
 import db from '../models';
 import { Request, Response } from 'express';
 
-const User = db.users;
-
+// Define UserType interface if not imported from elsewhere
 interface UserType {
-    id?: number;
+    status: boolean;
     firstname: string;
     lastname: string;
     nickname: string;
     email: string;
-    status?: boolean;
 }
+
+const User = db.users;
 
 export default {
     getUsers: async (req: Request, res: Response) => {

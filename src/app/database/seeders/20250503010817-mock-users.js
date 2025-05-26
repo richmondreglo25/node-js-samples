@@ -15,32 +15,32 @@ export default {
       status: true,
       firstname: 'Ericka',
       lastname: 'Reglo',
-      nickname: 'erick',
-      email: 'ericka@example.com',
+      nickname: null,
+      email: null,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
       status: true,
       firstname: 'Carmelina',
       lastname: 'Reglo',
-      nickname: 'carm',
-      email: 'carmelina@example.com',
+      nickname: null,
+      email: null,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
       status: true,
       firstname: 'John Victor',
       lastname: 'Reglo',
-      nickname: 'john',
-      email: 'johnvictor@example.com',
+      nickname: null,
+      email: null,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
       status: true,
       firstname: 'Gabriel Rose',
       lastname: 'Reglo',
-      nickname: 'gabe',
-      email: 'gabrielrose@example.com',
+      nickname: null,
+      email: null,
       createdAt: new Date(),
       updatedAt: new Date()
     }], {});
