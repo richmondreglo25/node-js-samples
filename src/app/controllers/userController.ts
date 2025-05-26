@@ -1,13 +1,21 @@
-import db from '../models/index.js';
+import db from '../models';
+import { Request, Response } from 'express';
 
 const User = db.users;
 
-export default {
-    getUsers: async (req, res) => {
-        const fetchDeleted = req.query.fetchDeleted;
-        let _where = {};
+interface UserType {
+    id?: number;
+    firstname: string;
+    lastname: string;
+    status?: boolean;
+}
 
-        if (!(fetchDeleted === true || fetchDeleted === 'true')) {
+export default {
+    getUsers: async (req: Request, res: Response) => {
+        const fetchDeleted = req.query.fetchDeleted;
+        let _where: any = {};
+
+        if (!(fetchDeleted === 'true')) {
             _where.where = {};
             _where.where.status = true;
         }
@@ -15,7 +23,7 @@ export default {
         const users = await User.findAll(_where);
         res.status(200).send(users);
     },
-    getUser: async (req, res) => {
+    getUser: async (req: Request, res: Response) => {
         const user = await User.findOne({
             where: {
                 id: req.params.id
@@ -24,8 +32,8 @@ export default {
 
         res.status(user ? 200 : 404).send(user);
     },
-    addUser: async (req, res) => {
-        const data = {
+    addUser: async (req: Request, res: Response) => {
+        const data: UserType = {
             status: true,
             firstname: req.body.firstname,
             lastname: req.body.lastname
@@ -34,8 +42,8 @@ export default {
         const user = await User.create(data);
         res.status(201).send(user);
     },
-    updateUser: async (req, res) => {
-        const data = {
+    updateUser: async (req: Request, res: Response) => {
+        const data: Partial<UserType> = {
             firstname: req.body.firstname,
             lastname: req.body.lastname
         };
@@ -49,7 +57,7 @@ export default {
         res.status(user ? 204 : 404);
         res.end();
     },
-    deleteUser: async (req, res) => {
+    deleteUser: async (req: Request, res: Response) => {
         const data = {
             status: false
         };
@@ -63,4 +71,4 @@ export default {
         res.status(user ? 204 : 404);
         res.end();
     }
-}
+};

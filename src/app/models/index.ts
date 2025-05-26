@@ -1,24 +1,24 @@
 import { Sequelize, DataTypes } from 'sequelize';
-import UserModel from './UserModel.js';
-import dbConfig from '../config/dbConfig.js';
-import stringUtils from '../utils/stringUtils.js';
+import UserModel from './userModel';
+import * as dbConfig from '../config/dbConfig';
+import stringUtils from '../utils/stringUtils';
 
 var _env;
-const env = (_env = process.env.NODE_ENV) !== null && !stringUtils.isBlank(_env) ? _env : "dev";
-const config = dbConfig[env];
+const env = (_env = process.env.NODE_ENV) && !stringUtils.isBlank(_env) ? _env : "development";
+const config = (dbConfig as any)[env];
 const params = {
     host: config.host,
     port: config.port,
     dialect: config.dialect,
     pool: config.pool
-}
+};
 
 const sequelize = new Sequelize(
     config.database,
     config.username,
     config.password,
     params
-)
+);
 
 sequelize.authenticate()
     .catch(() => {

@@ -20,26 +20,18 @@ const sequelize = new Sequelize(
 )
 
 sequelize.authenticate()
-    .then(() => {
-        // console.log('Connected to Database!');
-    })
     .catch((err) => {
-        let _config = config;
-        _config.password = "****";
-        console.log(`Unable to connect to Database using these configs. ${_config}`);
+        console.log(`Unable to connect to Database`);
     });
 
-const db = {};
+const db = {
+    Sequelize,
+    sequelize,
+    users: UserModel(sequelize, DataTypes)
+};
 
-db.Sequelize = Sequelize;
-db.sequelize = sequelize;
-db.users = UserModel(sequelize, DataTypes);
-
-db.sequelize.sync({
-    force: false
-})
-    .then(() => {
-        // console.log(`Resycn done.`)
-    });
+// db.sequelize.sync({
+//     force: false
+// })
 
 export default db;
