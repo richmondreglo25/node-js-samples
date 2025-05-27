@@ -36,6 +36,9 @@ class ApiServer {
             console.log(`Server is running on port ${this.port}`);
         });
     }
+    public getApp(): Application {
+        return this.app;
+    }
 }
 
 export default ApiServer;

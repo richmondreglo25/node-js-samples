@@ -6,7 +6,7 @@
     "rootDir": "ts/src",
     "baseUrl": "ts/src",
     "paths": {
-      "@app/*": ["ts/app/*"]
+      "@app/*": ["./*"]
     },
     "strict": true,
     "esModuleInterop": true,

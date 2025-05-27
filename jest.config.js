@@ -1,27 +1,27 @@
 module.exports = {
     preset: 'ts-jest',
     testEnvironment: 'node',
-    roots: ['<rootDir>/src/test'],
+    roots: ['<rootDir>/ts/test'], // Updated to reflect the new folder structure
     testMatch: ['**/*.test.ts'],
     coverageDirectory: 'coverage',
     testSequencer: '@jest/test-sequencer', // Run tests synchronously
     maxWorkers: 1, // Force Jest to run tests in a single worker (serially)
     collectCoverageFrom: [
-        'src/app/**/*.ts',
-        '!src/app/**/index.ts',
-        '!src/app/**/swagger.ts',
-        '!src/app/**/sequelizeConfig.js',
-        '!src/app/**/dbConfig.ts',
-        '!src/app/**/migrations/**',
-        '!src/app/**/seeders/**',
-        '!src/test/**',
+        'ts/src/app/**/*.ts', // Updated path
+        '!ts/src/app/**/index.ts',
+        '!ts/src/app/**/swagger.ts',
+        '!ts/src/app/**/sequelizeConfig.js',
+        '!ts/src/app/**/dbConfig.ts',
+        '!ts/src/app/**/migrations/**',
+        '!ts/src/app/**/seeders/**',
+        '!ts/src/test/**',
     ],
     transform: {
         '^.+\\.ts$': 'ts-jest',
     },
     moduleFileExtensions: ['ts', 'js', 'json', 'node'],
-    moduleDirectories: ['node_modules', 'src'],
+    moduleDirectories: ['node_modules', 'ts/src'], // Updated to reflect the new folder structure
     moduleNameMapper: {
-        '^@app/(.*)$': '<rootDir>/src/app/$1',
+        '^@app/(.*)$': '<rootDir>/ts/src/app/$1', // Updated alias mapping
     },
 };
