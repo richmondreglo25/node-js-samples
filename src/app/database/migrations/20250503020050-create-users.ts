@@ -1,8 +1,7 @@
-'use strict';
+import { QueryInterface, DataTypes } from 'sequelize';
 
-/** @type {import('sequelize-cli').Migration} */
 export default {
-  async up(queryInterface, Sequelize) {
+  async up(queryInterface: QueryInterface, Sequelize: typeof DataTypes) {
     await queryInterface.createTable('users', {
       id: {
         type: Sequelize.INTEGER,
@@ -24,24 +23,24 @@ export default {
       },
       nickname: {
         type: Sequelize.STRING,
-        allowNull: true,
-        defaultValue: null
+        allowNull: true
       },
       email: {
         type: Sequelize.STRING,
-        allowNull: true,
-        defaultValue: null
+        allowNull: true
       },
       createdAt: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        allowNull: false
       },
       updatedAt: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        allowNull: false
       }
     });
   },
 
-  async down(queryInterface, Sequelize) {
+  async down(queryInterface: QueryInterface) {
     await queryInterface.dropTable('users');
   }
 };
