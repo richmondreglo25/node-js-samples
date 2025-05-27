@@ -9,11 +9,8 @@ export default {
 
         try {
             return JSON.parse(jsonString);
-        } catch (error: unknown) {
-            if (error instanceof Error) {
-                throw new Error(`${configName} is not a valid JSON String. ${error.stack}`);
-            }
-            throw error;
+        } catch (error: any) {
+            throw new Error(`${configName} is not a valid JSON String.`);
         }
     }
 }

@@ -3,17 +3,24 @@ module.exports = {
     testEnvironment: 'node',
     roots: ['<rootDir>/ts/test/unit'], // Updated to reflect the new folder structure
     testMatch: ['**/*.test.ts'],
-    coverageDirectory: 'coverage',
+    collectCoverage: true, // Enable coverage collection
     collectCoverageFrom: [
-        'ts/src/app/**/*.ts', // Updated path
-        '!ts/src/app/**/index.ts',
-        '!ts/src/app/**/swagger.ts',
-        '!ts/src/app/**/sequelizeConfig.js',
-        '!ts/src/app/**/dbConfig.ts',
-        '!ts/src/app/**/migrations/**',
-        '!ts/src/app/**/seeders/**',
-        '!ts/src/test/**',
+        'ts/src/**/*.{ts,js}', // Include all files in the "src" folder
+        '!ts/src/**/index.ts', // Exclude index files
+        '!ts/src/**/config/**', // Exclude config files
+        '!ts/src/**/repositories/**', // Exclude repositories
+        '!ts/src/**/database/**', // Exclude database files
     ],
+    coverageDirectory: 'coverage',
+    coverageReporters: ['text', 'lcov'], // Specify coverage report formats
+    coverageThreshold: {
+        global: {
+            branches: 80, // At least 80% branch coverage
+            functions: 80, // At least 80% function coverage
+            lines: 80, // At least 80% line coverage
+            statements: 80, // At least 80% statement coverage
+        },
+    },
     transform: {
         '^.+\\.ts$': 'ts-jest',
     },
