@@ -1,4 +1,4 @@
-import stringUtils from '../../src/utils/stringUtils';
+import stringUtils from '../../../src/utils/stringUtils';
 
 describe('stringUtils', () => {
     it('should return true for blank strings', () => {

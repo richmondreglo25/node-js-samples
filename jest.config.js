@@ -1,11 +1,9 @@
 module.exports = {
     preset: 'ts-jest',
     testEnvironment: 'node',
-    roots: ['<rootDir>/ts/test'], // Updated to reflect the new folder structure
+    roots: ['<rootDir>/ts/test/unit'], // Updated to reflect the new folder structure
     testMatch: ['**/*.test.ts'],
     coverageDirectory: 'coverage',
-    testSequencer: '@jest/test-sequencer', // Run tests synchronously
-    maxWorkers: 1, // Force Jest to run tests in a single worker (serially)
     collectCoverageFrom: [
         'ts/src/app/**/*.ts', // Updated path
         '!ts/src/app/**/index.ts',
