@@ -8,7 +8,7 @@
     "start": "node dist/index.js",
     "dev": "nodemon dist/index.js",
     "test": "jest --coverage --passWithNoTests",
-    "reinit:sql": "npx sequelize db:create && npx sequelize-cli db:migrate:undo && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:undo:all && npx sequelize-cli db:seed:all",
+    "init:sql": "npx sequelize db:create && npx sequelize-cli db:migrate:undo && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:undo:all && npx sequelize-cli db:seed:all",
     "watch": "rimraf dist && npx tsc -p . --w",
     "build:dist": "tsc --outDir dist"
   },

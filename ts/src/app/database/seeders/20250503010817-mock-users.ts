@@ -14,8 +14,8 @@ export default {
       status: true,
       firstname: 'Ericka',
       lastname: 'Reglo',
-      nickname: null,
-      email: null,
+      nickname: 'Baduday',
+      email: 'ericka@example.com',
       createdAt: new Date(),
       updatedAt: new Date()
     }]);
